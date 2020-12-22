@@ -37,8 +37,7 @@ Build #5 (3bf0f6b) of yetoneya/yetoneya_infra@homework-02b by elena errored in 0
 
 сообщение в Slack от GitHub:
 
-yetoneyayetoneya
-1 new commit pushed to homework-02b
-eda4b69b - Update README.md
-<https://github.com/yetoneya/yetoneya_infra|yetoneya/yetoneya_infra>yetoneya/yetoneya_infra
+GitHubAPP  8:04 PM
+This channel will get notifications from Otus-DevOps-2020-11/yetoneya_infra for:
+issues, pulls, deployments, statuses, public, commits:all, releases
 
