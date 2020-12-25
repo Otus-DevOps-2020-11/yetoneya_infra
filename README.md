@@ -34,3 +34,8 @@ This channel will get notifications from Otus-DevOps-2020-11/yetoneya_infra fo
 issues, pulls, deployments, statuses, public, commits:all, releases
 Learn More
 
+сообщение от Travis:
+
+elena  2:02 PM
+added an integration to this channel: Travis CI
+
