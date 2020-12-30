@@ -1,7 +1,7 @@
 ﻿# yetoneya_infra
 yetoneya Infra repository
 
-homework-02
+#homework2
 
 elena@debian:~/Documents/dev-ops/yetoneya_infra$ travis login --github-token 2729297f8391fac858eecdabced9bd4421d21a9f
 Successfully logged in as yetoneya!
@@ -38,7 +38,7 @@ Learn More
 elena  2:02 PM
 added an integration to this channel: Travis CI
 
-homework-03
+#homework 3
 
 ssh elena@130.193.50.142
 
