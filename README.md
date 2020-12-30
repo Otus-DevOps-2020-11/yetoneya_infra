@@ -1,8 +1,8 @@
-﻿yetoneya_infra
+# yetoneya_infra
 
-yetoneya Infra repository
+## yetoneya Infra repository
 
-homework 2
+### homework 2
 
 Установила утилиту travis, создала workspace в slack, сделала  интеграцию
 
@@ -40,11 +40,11 @@ GitHubAPP  8:04 PM This channel will get notifications from Otus-DevOps-2020-
 
 elena 2:02 PM added an integration to this channel: Travis CI
 
-homework 3
+### homework 3
 
 ssh elena@130.193.50.142
 
-настройка forwarding:
+#### настройка forwarding:
 
 elena@bastion:~$ sudo sysctl -w net.ipv4.ip_forward=1
 
@@ -60,7 +60,7 @@ elena@debian:$ ssh -J 130.193.50.142:22 elena@10.130.0.24
 
 elena@innerhost:$
 
-proxy jump:
+#### proxy jump:
 
     Host innerhost 
 
@@ -74,7 +74,7 @@ elena@debian:$ ssh innerhost
 
 elena@innerhost:$
 
-pritunl
+#### pritunl
 
 установила pritunl, проверила установку:
 
@@ -128,12 +128,13 @@ Last login: Wed Dec 30 08:14:53 2020 from 10.130.0.7
 elena@innerhost:~$
 
 
-сертификат:
+#### сертификат:
 
 setting -> Lets Encrypt Domain ->www.130.193.50.142.xip.io
 
 поскольку потом все удалила, то новые ip для проверки:
 
+#### test
 
 bastion_IP = 178.154.246.9
 
