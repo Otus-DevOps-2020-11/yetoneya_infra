@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list << EOF
 deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.2 multiverse
 EOF

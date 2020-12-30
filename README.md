@@ -136,9 +136,9 @@ setting -> Lets Encrypt Domain ->www.130.193.50.142.xip.io
 
 #### test
 
-bastion_IP = 178.154.246.9
+bastion_IP = 178.154.225.152
 
-innerhost_IP = 10.130.0.24
+innerhost_IP = 10.130.0.30
 
-www.178.154.246.9.xip.io
+www.178.154.225.152.xip.io
 
