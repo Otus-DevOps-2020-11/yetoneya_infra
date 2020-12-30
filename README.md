@@ -1,8 +1,7 @@
 ﻿# yetoneya_infra
 yetoneya Infra repository
 
-
-homework-02b
+homework-02
 
 elena@debian:~/Documents/dev-ops/yetoneya_infra$ travis login --github-token 2729297f8391fac858eecdabced9bd4421d21a9f
 Successfully logged in as yetoneya!
@@ -38,4 +37,76 @@ Learn More
 
 elena  2:02 PM
 added an integration to this channel: Travis CI
+
+homework-03
+
+ssh elena@130.193.50.142
+
+sctl net.ipv4.ip_forward
+net.ipv4.ip_forward = 0
+
+elena@bastion:~$ sudo sysctl -w net.ipv4.ip_forward=1
+net.ipv4.ip_forward = 1
+
+elena@debian:~$ ssh -A elena@130.193.50.142
+elena@bastion:~$ ssh 10.130.0.24
+elena@innerhost:~$ 
+
+elena@debian:~$ ssh -J 130.193.50.142:22 elena@10.130.0.24
+elena@innerhost:~$ 
+
+Host innerhost
+    HostName 10.130.0.24
+    ProxyJump 130.193.50.142:22
+    User elena
+
+elena@debian:~$ ssh innerhost
+elena@innerhost:~$ 
+
+установила pritunl, проверила:
+
+elena@bastion:~$ pritunl version
+pritunl v1.29.2664.67
+
+запустила. проверила:
+
+elena@bastion:~$ netstat -tlpn
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:9755          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+tcp6       0      0 :::443                  :::*                    LISTEN      -                   
+tcp6       0      0 :::80                   :::*                    LISTEN
+
+дальше все по инструкциям:
+
+sudo pritunl setup-key
+
+sudo pritunl default-password
+
+добавила юзера, организацию и сервер. добавила серверу адрес innerhost
+
+sudo apt install openvpn
+
+elena@debian:~$ sudo openvpn ~/Downloads/test/test_test_server.ovpn
+
+elena@debian:~$ ssh elena@innerhost
+Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-26-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+Last login: Wed Dec 30 08:14:53 2020 from 10.130.0.7
+elena@innerhost:~$
+
+сертификат:
+setting -> Lets Encrypt Domain -> www.130.193.50.142.xip.io -> вход по www.130.193.50.142.xip.io
 
