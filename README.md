@@ -1,4 +1,4 @@
-﻿# yetoneya_infra
+# yetoneya_infra
 
 ## yetoneya Infra repository
 
@@ -132,27 +132,13 @@ elena@innerhost:~$
 
 setting -> Lets Encrypt Domain ->www.130.193.50.142.xip.io
 
-поскольку потом все удалила, то новые ip для проверки:
+так как виртуалка была прерываемой. то новые ip для проверки
 
 #### test
 
-bastion_IP = 178.154.246.9
+bastion_IP = 178.154.225.152
 
-innerhost_IP = 10.130.0.24
+innerhost_IP = 10.130.0.30
 
-www.178.154.246.9.xip.io
+www.178.154.225.152.xip.io
 
-### homework 4
-
-[![](https://github.com/Otus-DevOps-2020-11/yetoneya_infra/blob/cloud-testapp/homework04.jpg)
-
-    yc compute instance create \
-      --folder-name catalog \
-      --name reddit-app \
-      --hostname reddit-app \
-      --memory=4 \
-      --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
-      --metadata-from-file user-data=./metadata.yaml \
-      --metadata serial-port-enable=1 \
-      --ssh-key ~/.ssh/id_rsa.pub
