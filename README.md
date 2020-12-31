@@ -142,3 +142,15 @@ innerhost_IP = 10.130.0.24
 
 www.178.154.246.9.xip.io
 
+### homework 4
+
+    yc compute instance create \
+      --folder-name catalog \
+      --name reddit-app \
+      --hostname reddit-app \
+      --memory=4 \
+      --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+      --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+      --metadata-from-file user-data=./metadata.yaml \
+      --metadata serial-port-enable=1 \
+      --ssh-key ~/.ssh/id_rsa.pub
