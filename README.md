@@ -144,6 +144,8 @@ www.178.154.246.9.xip.io
 
 ### homework 4
 
+[![](https://github.com/Otus-DevOps-2020-11/yetoneya_infra/blob/cloud-testapp/homework04.jpg)
+
     yc compute instance create \
       --folder-name catalog \
       --name reddit-app \
