@@ -6,11 +6,11 @@
 
 Установила утилиту travis, создала workspace в slack, сделала  интеграцию
 
-elena@debian:/Documents/dev-ops/yetoneya_infra$ travis login --github-token 2729297f8391fac858eecdabced9bd4421d21a9f 
+elena@debian:/Documents/dev-ops/yetoneya_infra$ travis login --github-token 11111111111111111111111111111111111111111
 
 Successfully logged in as yetoneya!
 
-elena@debian:/Documents/dev-ops/yetoneya_infra$ travis encrypt "yetoneyacorporation:9wkNPLiiyVuTl0MgSu8NJ0yJ" --add notifications.slack -r yetoneya/yetoneya_infra
+elena@debian:/Documents/dev-ops/yetoneya_infra$ travis encrypt "yetoneyacorporation:AAAAAAAAAAAAAAAAAAAAAAAA" --add notifications.slack -r yetoneya/yetoneya_infra
 
 Overwrite the config file /home/elena/Documents/dev-ops/yetoneya_infra/.travis.yml with the content below?
 
