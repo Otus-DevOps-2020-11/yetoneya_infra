@@ -144,7 +144,7 @@ www.178.154.225.152.xip.io
 
 ### homework 4
 
-[![](https://github.com/Otus-DevOps-2020-11/yetoneya_infra/blob/cloud-testapp/homework04.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework04.jpg)
 
     yc compute instance create \
       --folder-name catalog \
