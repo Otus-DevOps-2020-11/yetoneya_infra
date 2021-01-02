@@ -161,23 +161,23 @@ www.178.154.225.152.xip.io
 
 создан сервисный аккаунт и вм при помощи ec cli
 
-
 создан образ на основе файла ubuntu16.json без параметризации
-
 
 создан образ на основе файла immutable.json, создана vm на основе образа, выполнен вход в аккаунт
 
 testapp_IP: 178.254.246.75 testupp_port: 9292 (прерываемая, если остановится, могу пересоздать для проверки)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework05-1.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-1.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework05-2.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-2.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework05-3.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-3.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework05-4.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-4.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework05-5.jpg)
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-5.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-6.png)
 
 
 создание vm из образа:
