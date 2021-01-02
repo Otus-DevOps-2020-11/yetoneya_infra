@@ -193,4 +193,3 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
        --ssh-key ~/.ssh/id_rsa.pub
 
 
-образ для Ubuntu-20 собирается без sleep в скриптах
