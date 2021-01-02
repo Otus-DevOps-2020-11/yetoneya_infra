@@ -2,14 +2,15 @@
   "builders": [
     {
       "type": "yandex",
-      "service_account_key_file": "/home/elena/Documents/packer/key.json",
-      "folder_id": "b1gbj6r7clnrmifr988p",
-      "source_image_family": "ubuntu-2004-lts",
+      "service_account_key_file": "{{user `service_account_key_file`}}",
+      "folder_id": "{{user `folder_id`}}",
+      "source_image_family": "{{user `source_image_family`}}",
       "image_name": "reddit-base-{{timestamp}}",
       "image_family": "reddit-base",
       "zone": "ru-central1-a",
       "use_ipv4_nat": true,
-      "subnet_id": "e9b0eh95ocin6vutga87",
+      "subnet_id": "{{user `subnet_id`}}",
+      "disk_size_gb": "{{user `disk_size_gb`}}",
       "ssh_username": "ubuntu",
       "platform_id": "standard-v1"
     }
