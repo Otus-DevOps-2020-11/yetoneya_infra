@@ -157,7 +157,7 @@ www.178.154.225.152.xip.io
       --metadata serial-port-enable=1 \
       --ssh-key ~/.ssh/id_rsa.pub
       
-testapp_IP: 178.154.226.248 testupp_port: 9292   
+testapp_IP: 178.154.226.248 testapp_port: 9292   
 
 ### homework 5
 
@@ -167,7 +167,7 @@ testapp_IP: 178.154.226.248 testupp_port: 9292
 
 создан образ на основе файла immutable.json, создана vm на основе образа, выполнен вход в аккаунт
 
-testapp_IP: 84.201.156.249 testupp_port: 9292 
+testapp_IP: 84.201.156.249 testapp_port: 9292 
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework05-1.png)
 
