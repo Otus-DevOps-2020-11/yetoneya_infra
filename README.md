@@ -156,3 +156,38 @@ www.178.154.225.152.xip.io
       --metadata-from-file user-data=./metadata.yaml \
       --metadata serial-port-enable=1 \
       --ssh-key ~/.ssh/id_rsa.pub
+
+### homework 5
+
+создан сервисный аккаунт и вм при помощи ec cli
+
+
+создан образ на основе файла ubuntu16.json без параметризации
+
+
+создан образ на основе файла immutable.json, создана vm на основе образа, выполнен вход в аккаунт
+
+testapp_IP: 178.254.246.75 testupp_port: 9292 (прерываемая, если остановится, могу пересоздать для проверки)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-1.jpg)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-2.jpg)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-3.jpg)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-4.jpg)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-5.jpg)
+
+
+создание vm из образа:
+     
+     yc compute instance create \
+       --name vm-from-image \
+       --folder-id=b1gbj6r7clnrmifr988p
+       --zone ru-central1-a \
+       --create-boot-disk name=disk1,size=5,image-id=fd88sfr4itgrb19srt81 \
+       --public-ip \
+       --ssh-key ~/.ssh/id_rsa.pub
+
+
