@@ -1,0 +1,35 @@
+variable cloud_id {
+  default = "1"
+  description = "Cloud"
+}
+variable folder_id {
+  description = "Folder"
+  default = "1"
+}
+variable zone {
+  description = "Zone"
+  # Значение по умолчанию
+  default = "1"
+}
+variable public_key_path {
+  # Описание переменной
+  description = "Path to the public key used for ssh access"
+  default = "path"
+}
+variable private_key_path {
+  # Описание переменной
+  description = "Path to the private key used for ssh access"
+  default = "path"
+}
+variable image_id {
+  description = "Disk image"
+  default = "1"
+}
+variable subnet_id {
+  description = "Subnet"
+  default = "1"
+}
+variable service_account_key_file {
+  description = "Key"
+  default = "file"
+}
