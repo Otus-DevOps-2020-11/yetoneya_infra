@@ -1,12 +1,11 @@
 [Unit]
-Description=Puma HTTP Server
+Description=PumaApp
 After=network.target
 
 [Service]
 Type=simple
-User=ubuntu
-WorkingDirectory=/home/ubuntu/reddit
-ExecStart=/bin/bash -lc 'puma'
+WorkingDirectory=/usr/app/reddit
+ExecStart=/usr/local/bin/puma
 Restart=always
 
 [Install]
