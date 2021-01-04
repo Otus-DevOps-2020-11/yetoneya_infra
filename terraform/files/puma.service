@@ -1,0 +1,12 @@
+[Unit]
+Description=PumaApp
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/app/reddit
+ExecStart=/usr/local/bin/puma
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
