@@ -1,4 +1,5 @@
 resource "yandex_lb_network_load_balancer" "lb" {
+  depends_on = [yandex_lb_target_group.lb_group]
   name = "balancer"
   listener {
     name = "listener"
@@ -19,14 +20,15 @@ resource "yandex_lb_network_load_balancer" "lb" {
     }
   }
 }
+
 resource "yandex_lb_target_group" "lb_group" {
   name = "group"
-  target {
-    address = yandex_compute_instance.app_1.network_interface.0.ip_address
-    subnet_id = var.subnet_id
-  }
-  target {
-    address = yandex_compute_instance.app_2.network_interface.0.ip_address
-    subnet_id = var.subnet_id
+  depends_on = [yandex_compute_instance.app]
+  dynamic "target" {
+    for_each = yandex_compute_instance.app.*.network_interface.0.ip_address
+    content {
+      subnet_id = var.subnet_id
+      address = target.value
+    }
   }
 }
