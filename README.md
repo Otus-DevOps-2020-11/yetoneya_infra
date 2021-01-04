@@ -193,3 +193,19 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
        --ssh-key ~/.ssh/id_rsa.pub
 
 
+### homework 4
+
+установлн terraform-0.12.8
+
+при помощи terraform сгенерирован и запущен инстанс из образа, созданногго на прошлом homework:
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
+
+создан load balancer
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
+
+
