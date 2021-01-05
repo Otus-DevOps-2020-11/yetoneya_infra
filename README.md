@@ -203,7 +203,26 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
 
 создан еще один инстанс и load balancer
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework06-2.png)
+подключение через load balancer
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-3.png)
+
+остановлен один сервер, приложение доступно по адресу балансера
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-4.png)
+
+недостатки: нет возможности решать сколько серверов запустить
+
+tsstapp_IP: 84.201.131.206 testapp_port: 9292
+
+tsstapp_IP: 84.201.172.101 testapp_port: 9292
+
+testapp_IP: 84.201.134.135 testapp_port: 80
+
+
+
+
+
 
 
 
