@@ -201,6 +201,11 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
 
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-2.png)
+
+#### задания **
+**
+
 создан еще один инстанс и load balancer
 
 подключение через load balancer
@@ -211,13 +216,22 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework06-4.png)
 
-недостатки: нет возможности решать сколько серверов запустить
+**
+
+count = var.count_app * 2
+
+name = "reddit-app-${count.index}"
+
+**
+
+недостатки: нет возможности разделить - сколько серверов создать. а сколько запустить
+
 
 tsstapp_IP: 84.201.131.206 testapp_port: 9292
 
 tsstapp_IP: 84.201.172.101 testapp_port: 9292
 
-testapp_IP: 84.201.134.135 testapp_port: 80
+testapp_IP: 178.154.226.220 testapp_port: 80
 
 
 
