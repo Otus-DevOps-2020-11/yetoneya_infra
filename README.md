@@ -6,7 +6,9 @@
 
 Установила утилиту travis, создала workspace в slack, сделала  интеграцию
 
+
 elena@debian:/Documents/dev-ops/yetoneya_infra$ travis login --github-token 1111111111111111111111111111111111111111 
+
 
 Successfully logged in as yetoneya!
 
