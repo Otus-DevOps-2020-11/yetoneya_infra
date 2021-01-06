@@ -156,3 +156,88 @@ www.178.154.225.152.xip.io
       --metadata-from-file user-data=./metadata.yaml \
       --metadata serial-port-enable=1 \
       --ssh-key ~/.ssh/id_rsa.pub
+      
+testapp_IP: 178.154.226.248 testapp_port: 9292   
+
+### homework 5
+
+создан сервисный аккаунт и вм при помощи ec cli
+
+создан образ на основе файла ubuntu16.json без параметризации
+
+создан образ на основе файла immutable.json, создана vm на основе образа, выполнен вход в аккаунт
+
+testapp_IP: 84.201.156.249 testapp_port: 9292 
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-1.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-2.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-3.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-4.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-5.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework05-6.png)
+
+
+создание vm из образа:
+     
+     yc compute instance create \
+       --name vm-from-image \
+       --folder-id=b1gbj6r7clnrmifr988p
+       --zone ru-central1-a \
+       --create-boot-disk name=disk1,size=5,image-id=fd88sfr4itgrb19srt81 \
+       --public-ip \
+       --ssh-key ~/.ssh/id_rsa.pub
+
+
+### homework 4
+
+установлн terraform-0.12.8
+
+при помощи terraform сгенерирован и запущен инстанс из базового образа, созданного на прошлом homework:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-2.png)
+
+#### задания **
+**
+
+создан еще один инстанс и load balancer
+
+подключение через load balancer
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-3.png)
+
+остановлен один сервер, приложение доступно по адресу балансера
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-4.png)
+
+**
+
+count = var.count_app * 2
+
+name = "reddit-app-${count.index}"
+
+**
+
+недостатки: нет возможности разделить - сколько серверов создать. а сколько запустить
+
+
+tsstapp_IP: 84.201.131.206 testapp_port: 9292
+
+tsstapp_IP: 84.201.172.101 testapp_port: 9292
+
+testapp_IP: 178.154.226.220 testapp_port: 80
+
+
+
+
+
+
+
+
+
