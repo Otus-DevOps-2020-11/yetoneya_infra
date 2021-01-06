@@ -14,8 +14,8 @@ resource "yandex_lb_network_load_balancer" "lb" {
     healthcheck {
       name = "health"
       http_options {
-        port = 80
-        path = "/ping"
+        port = 9292
+        path = "/"
       }
     }
   }
