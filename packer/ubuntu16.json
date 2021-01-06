@@ -12,7 +12,6 @@
       "subnet_id": "{{user `subnet_id`}}",
       "disk_size_gb": "{{user `disk_size_gb`}}",
       "ssh_username": "ubuntu",
-      "ssh_private_key_file" : "{{user `private_key_file`}}",
       "platform_id": "standard-v1"
     }
   ],
