@@ -193,3 +193,51 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
        --ssh-key ~/.ssh/id_rsa.pub
 
 
+### homework 4
+
+установлн terraform-0.12.8
+
+при помощи terraform сгенерирован и запущен инстанс из базового образа, созданного на прошлом homework:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-1.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-2.png)
+
+#### задания **
+**
+
+создан еще один инстанс и load balancer
+
+подключение через load balancer
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-3.png)
+
+остановлен один сервер, приложение доступно по адресу балансера
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework06-4.png)
+
+**
+
+count = var.count_app * 2
+
+name = "reddit-app-${count.index}"
+
+**
+
+недостатки: нет возможности разделить - сколько серверов создать. а сколько запустить
+
+
+tsstapp_IP: 84.201.131.206 testapp_port: 9292
+
+tsstapp_IP: 84.201.172.101 testapp_port: 9292
+
+testapp_IP: 178.154.226.220 testapp_port: 80
+
+
+
+
+
+
+
+
+
