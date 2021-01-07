@@ -234,6 +234,67 @@ tsstapp_IP: 84.201.172.101 testapp_port: 9292
 testapp_IP: 178.154.226.220 testapp_port: 80
 
 
+### homework 5
+
+
+#### разделение конфигурации
+
+
+созданы сеть, подсеть. разделена конфигурацию на части - сеть, приложение, база данных. проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-1.png)
+
+ 
+#### модули
+
+
+созданы модули app и db:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-2.png)
+
+
+проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-3.png)
+
+
+#### профили
+
+
+созданы профили prod и stage:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-4.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-5.png)
+
+
+#### backend
+
+создан бакет yc object storage и  файлы backend.tf для каждого профиля
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-6.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-7.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-8.png)
+
+
+конфигурационные файлы из директории prod перенесены в директорию exp, из этой директории запущен terraform apply
+
+terraform destroy запущен из директории prod:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-9.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-10.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-11.png)
+
+
+проверена работа блокировок: если запущено приложение из prod, то при попытке запустить из stage получаем:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-12.png)
+
 
 
 
