@@ -295,6 +295,12 @@ terraform destroy запущен из директории prod:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-12.png)
 
+добавлены provisioners, проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-13.png)
+
+
+
 
 
 
