@@ -295,12 +295,13 @@ terraform destroy запущен из директории prod:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-12.png)
 
-добавлены provisioners, проверка:
+добавлены provisioners, настроен удаленный доступ к mongo, версия terraform 0.13.6, проверка:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-13.png)
 
 
-
+testapp_IP = 178.154.231.80  testapp_port: 9292
+db_IP = 178.154.230.89
 
 
 

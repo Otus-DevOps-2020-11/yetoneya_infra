@@ -5,7 +5,7 @@ resource "yandex_compute_instance" "app" {
     tags = "reddit-app"
   }
   resources {
-    cores  = 2
+    cores = 2
     memory = 2
   }
 
@@ -40,6 +40,14 @@ resource "yandex_compute_instance" "app" {
     source = "${path.module}/files/puma.service"
     destination = "/tmp/puma.service"
   }
+
+  #provisioner "file" {
+  #  content = templatefile("${path.module}/files/puma.service", {
+  #    Environment = {
+  #      DATABASE_URL = "${var.db_address}:27017"
+  #    }
+  #  )
+  #}
 
   provisioner "remote-exec" {
     script = "${path.module}/files/deploy.sh"
