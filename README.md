@@ -193,7 +193,7 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
        --ssh-key ~/.ssh/id_rsa.pub
 
 
-### homework 4
+### homework 6
 
 установлн terraform-0.12.8
 
@@ -234,7 +234,7 @@ tsstapp_IP: 84.201.172.101 testapp_port: 9292
 testapp_IP: 178.154.226.220 testapp_port: 80
 
 
-### homework 5
+### homework 7
 
 
 #### разделение конфигурации
@@ -242,7 +242,7 @@ testapp_IP: 178.154.226.220 testapp_port: 80
 
 созданы сеть, подсеть. разделена конфигурацию на части - сеть, приложение, база данных. проверка:
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-1.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-01.png)
 
  
 #### модули
@@ -250,12 +250,12 @@ testapp_IP: 178.154.226.220 testapp_port: 80
 
 созданы модули app и db:
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-2.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-02.png)
 
 
 проверка:
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-3.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-03.png)
 
 
 #### профили
@@ -263,9 +263,9 @@ testapp_IP: 178.154.226.220 testapp_port: 80
 
 созданы профили prod и stage:
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-4.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-04.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-5.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-05.png)
 
 
 #### backend
@@ -273,18 +273,18 @@ testapp_IP: 178.154.226.220 testapp_port: 80
 создан бакет yc object storage и  файлы backend.tf для каждого профиля
 
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-6.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-06.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-7.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-07.png)
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-8.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-08.png)
 
 
 конфигурационные файлы из директории prod перенесены в директорию exp, из этой директории запущен terraform apply
 
 terraform destroy запущен из директории prod:
 
-[![](https://github.com/yetoneya/pictures/blob/main/homework07-9.png)
+[![](https://github.com/yetoneya/pictures/blob/main/homework07-09.png)
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-10.png)
 
