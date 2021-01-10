@@ -300,8 +300,8 @@ terraform destroy запущен из директории prod:
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-13.png)
 
 
-testapp_IP = 178.154.231.80  testapp_port: 9292
-db_IP = 178.154.230.89
+testapp_IP = 178.154.226.47 testapp_port: 9292
+db_IP = 178.154.228.237
 
 
 
