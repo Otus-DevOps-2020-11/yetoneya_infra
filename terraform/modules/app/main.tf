@@ -1,8 +1,8 @@
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app"
+  name = "reddit-app-a"
 
   labels = {
-    tags = "reddit-app"
+    tags = "reddit-app-a"
   }
   resources {
     cores = 2

@@ -303,6 +303,40 @@ terraform destroy запущен из директории prod:
 testapp_IP = 178.154.231.80  testapp_port: 9292
 db_IP = 178.154.230.89
 
+### homework 8
+
+установлен ansible, создан файл inventory, выполнены команды:
+
+ansible reddit -i ./inventory -m ping
+ansible db -i ./inventory -m ping
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-01.png)
+
+хосты объединены в группы, теперь можно выполнять команды для группы хостов:
+
+ansible app -m ping
+
+
+создан файл inventory.yml:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-02.png)
+
+
+выполняем команды для хостов:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-03.png)
+
+
+создан файл inventory.json:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-04.png)
+
+при выполнении команды  ansible-playbook clone.yml получили changed=0,так как reddit уже установлен.
+
+командой  ansible app -m command -a 'rm -rf ~/reddit' его удалаили, поэтому при следующем выполнении 
+
+ansible-playbook clone.yml получили changed=1
+
 
 
 
