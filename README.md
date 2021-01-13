@@ -195,7 +195,7 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
 
 ### homework 6
 
-установлн terraform-0.12.8
+установлeн terraform-0.12.8
 
 при помощи terraform сгенерирован и запущен инстанс из базового образа, созданного на прошлом homework:
 
@@ -227,9 +227,9 @@ name = "reddit-app-${count.index}"
 недостатки: нет возможности разделить - сколько серверов создать. а сколько запустить
 
 
-tsstapp_IP: 84.201.131.206 testapp_port: 9292
+testapp_IP: 84.201.131.206 testapp_port: 9292
 
-tsstapp_IP: 84.201.172.101 testapp_port: 9292
+testapp_IP: 84.201.172.101 testapp_port: 9292
 
 testapp_IP: 178.154.226.220 testapp_port: 80
 
@@ -376,6 +376,8 @@ ansible-playbook clone.yml получили changed=1
 т.е. можно сделать jar файлы для всех каталогов.
 
 заменять названия в import-inventory, или сделать отдельные файлы для запуска
+
+(не универсально. подходит для определенной структуры)
 
 
 
