@@ -32,7 +32,7 @@ public class Inventory {
 
     static void createInventoryFromYC() {
         Map<String, Map<String, String>> activeHosts = getActiveHosts();
-        if (!activeHosts.isEmpty()) createJsonFile(activeHosts);
+        createJsonFile(activeHosts);
     }
 
     private static Map<String, Map<String, String>> getActiveHosts() {
@@ -76,7 +76,7 @@ public class Inventory {
         try {
             String json =  Files.readString(Paths.get(fileName)).strip().replaceAll("\\s+","");
             if (checkJson(json)) {
-                Files.writeString(Paths.get("inventory.json"), json);
+                Files.writeString(Paths.get(PATH,"inventory.json"), json);
             } else logger.log(Level.WARNING, "json is not valid");
         } catch (IOException ex) {
             logger.log(Level.SEVERE, ex.toString());
