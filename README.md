@@ -295,6 +295,10 @@ terraform destroy запущен из директории prod:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-12.png)
 
+
+#### provisioners
+
+
 добавлены provisioners, настроен удаленный доступ к mongo, версия terraform 0.13.6, проверка:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-13.png)
@@ -339,7 +343,7 @@ ansible-playbook clone.yml получили changed=1
 
 #### задания *
 
-##### плагин для создания динамического inventory.json
+#### плагин для создания динамического inventory.json
 
 в проекте создан модуль aws maven/java. в нем класс Inventory. 
 
