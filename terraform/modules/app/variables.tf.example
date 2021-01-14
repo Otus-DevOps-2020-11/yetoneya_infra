@@ -22,3 +22,9 @@ variable db_address {
   description = "Database IP address"
   default = ""
 }
+
+variable provisioner_enabled {
+  description = "Use provisioners"
+  type = number
+  default = 1
+}
