@@ -396,3 +396,4 @@ ansible-playbook clone.yml получили changed=1
 
 
 
+
