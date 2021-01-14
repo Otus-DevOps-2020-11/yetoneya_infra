@@ -195,7 +195,7 @@ testapp_IP: 84.201.156.249 testapp_port: 9292
 
 ### homework 6
 
-установлн terraform-0.12.8
+установлeн terraform-0.12.8
 
 при помощи terraform сгенерирован и запущен инстанс из базового образа, созданного на прошлом homework:
 
@@ -227,9 +227,9 @@ name = "reddit-app-${count.index}"
 недостатки: нет возможности разделить - сколько серверов создать. а сколько запустить
 
 
-tsstapp_IP: 84.201.131.206 testapp_port: 9292
+testapp_IP: 84.201.131.206 testapp_port: 9292
 
-tsstapp_IP: 84.201.172.101 testapp_port: 9292
+testapp_IP: 84.201.172.101 testapp_port: 9292
 
 testapp_IP: 178.154.226.220 testapp_port: 80
 
@@ -295,13 +295,98 @@ terraform destroy запущен из директории prod:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-12.png)
 
+
+#### provisioners
+
+
 добавлены provisioners, настроен удаленный доступ к mongo, версия terraform 0.13.6, проверка:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework07-13.png)
 
 
-testapp_IP = 178.154.226.47 testapp_port: 9292
-db_IP = 178.154.228.237
+testapp_IP = 178.154.226.47  testapp_port: 9292
+db_IP = 178.154.226.47
+
+### homework 8
+
+установлен ansible, создан файл inventory, выполнены команды:
+
+ansible reddit -i ./inventory -m ping
+ansible db -i ./inventory -m ping
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-01.png)
+
+хосты объединены в группы, теперь можно выполнять команды для группы хостов:
+
+ansible app -m ping
+
+
+создан файл inventory.yml:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-02.png)
+
+
+выполняем команды для хостов:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-03.png)
+
+
+создан файл inventory.json:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework08-04.png)
+
+при выполнении команды  ansible-playbook clone.yml получили changed=0,так как reddit уже установлен.
+
+командой  ansible app -m command -a 'rm -rf ~/reddit' его удалаили, поэтому при следующем выполнении 
+
+ansible-playbook clone.yml получили changed=1
+
+#### задания *
+
+#### плагин для создания динамического inventory.json
+
+в проекте создан модуль aws maven/java. в нем класс Inventory. 
+
+как работает:
+
+если при запуске не передавать никаких параметров, происходит считывание информации из указанного каталога yc,
+
+с авторизацией по токену
+
+если передать в качестве  путь к файлу, то проверяется. соответствует ли содержимое файла требуемой структуре. если да - 
+
+то перезаписывается существующий inventory.json
+
+файл компилируется в исполняемый файл inventory.jar 
+
+написан скрипт для запуска файла - import-inventory.
+
+чтобы запустить: установить maven, java. выполнить в директории модуля mvn clean package.
+
+переместить созданный jar-файл в корень директории ansible. сделать файл import-inventory исполняемым
+
+запуск из директории ansible: 
+
+./import-inventory (записывается информация из каталога yc); 
+
+./import_inventore <путь к файлу-источнику> (перезаписывается данными из файла-источника)
+
+чтобы поменять каталог - надо изменить его идентфикатор в файле Inventory.java.
+
+скомпилировать заново. в pom.xml в разделе build задать другое значение finalName.
+
+например, соответствующее имени каталога. создастся исполняемый jar с именем каталога.
+
+т.е. можно сделать jar файлы для всех каталогов.
+
+заменять названия в import-inventory, или сделать отдельные файлы для запуска
+
+(не универсально. подходит для определенной структуры)
+
+
+
+
+
 
 
 
