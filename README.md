@@ -345,7 +345,7 @@ ansible-playbook clone.yml получили changed=1
 
 #### плагин для создания динамического inventory.json
 
-в проекте создан модуль aws maven/java. в нем класс Inventory. 
+в проекте создан модуль ansible-dinamic-inventory: maven/java. в нем класс Inventory. 
 
 как работает:
 

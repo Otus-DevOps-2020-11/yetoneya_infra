@@ -1,4 +1,4 @@
-package ru.otus.elena.aws;
+package ru.otus.elena.inventory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import yandex.cloud.api.compute.v1.InstanceOuterClass;
