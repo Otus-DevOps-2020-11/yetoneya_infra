@@ -53,10 +53,9 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-
                     <archive>
                         <manifest>
-                            <mainClass>ru.otus.elena.aws.Inventory</mainClass>
+                            <mainClass>ru.otus.elena.inventory.Inventory</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
