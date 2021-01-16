@@ -4,11 +4,10 @@ After=network.target
 
 [Service]
 Type=simple
+EnvironmentFile=/home/ubuntu/db_config
 User=ubuntu
 WorkingDirectory=/home/ubuntu/reddit
-Environment="DATABASE_URL=84.201.156.94:27017"
 ExecStart=/bin/bash -lc 'puma'
-
 Restart=always
 
 [Install]

@@ -18,7 +18,7 @@ variable db_disk_image {
   default = ""
 }
 
-variable provisioner_enabled {
+variable provisioners_enable {
   description = "Use provisioners"
   type = number
   default = 1

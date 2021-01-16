@@ -23,7 +23,7 @@ variable db_address {
   default = ""
 }
 
-variable provisioner_enabled {
+variable provisioners_enable {
   description = "Use provisioners"
   type = number
   default = 1

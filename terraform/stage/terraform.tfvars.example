@@ -7,4 +7,4 @@ db_disk_image = "db"
 public_key_path = "path"
 private_key_path = "path"
 subnet_id = "id"
-provisioner_enabled = 0
+provisioners_enable = 0

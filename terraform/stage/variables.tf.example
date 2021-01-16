@@ -54,7 +54,7 @@ variable count_app {
   default = 1
 }
 
-variable provisioner_enabled {
+variable provisioners_enable {
   description = "Use provisioners"
   default = 0
 }

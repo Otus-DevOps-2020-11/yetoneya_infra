@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "db" {
 
 resource "null_resource" "db" {
 
-  count = var.provisioner_enabled
+  count = var.provisioners_enable
 
   connection {
     type = "ssh"
