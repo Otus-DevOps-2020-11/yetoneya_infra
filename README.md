@@ -386,7 +386,9 @@ ansible-playbook clone.yml получили changed=1
 
 ### homework 9
 
+
 #### один playbook - один сценарий
+
 
 добавлено отключение провижинга в terraform
 
@@ -395,18 +397,24 @@ ansible-playbook clone.yml получили changed=1
 созданы инстансы без провижинга, файлы конфигурации, выполнены команды
 
 ansible-playbook reddit_app.yml --check --limit db --tags db-tag
+
 ansible-playbook reddit_app.yml --limit db --tags db-tag
 
 ansible-playbook reddit_app.yml --check --limit app --tags app-tag
+
 ansible-playbook reddit_app.yml  --limit app --tags app-tag
 
 ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+
 ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+
 
 затем проверки:
 
 ansible db -m command -a 'systemctl status mongod'
+
 ansible app -m command -a 'systemctl status puma'
+
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-01.png)
 
@@ -417,9 +425,12 @@ ansible app -m command -a 'systemctl status puma'
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-04.png)
 
 
+
 #### один playbook - много сценариев
 
+
 создан playbook reddit-app2.yml, сценарий разделен на части:
+
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-05.png)
 
@@ -430,10 +441,12 @@ ansible app -m command -a 'systemctl status puma'
 
 #### несколько playbooks, в каждом отдельный сценарий
 
+
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-08.png)
 
 
 testapp_IP = 84.201.159.207  testapp_port: 9292
+
 db_IP = 84.201.157.20
 
 
