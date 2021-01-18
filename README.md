@@ -345,7 +345,7 @@ ansible-playbook clone.yml получили changed=1
 
 #### плагин для создания динамического inventory.json
 
-в проекте создан модуль ansible-dinamic-inventory: maven/java. в нем класс Inventory. 
+в проекте создан модуль ansible-yc-dinamic-inventory: maven/java. в нем класс YCInventory. 
 
 как работает:
 
@@ -448,6 +448,42 @@ ansible app -m command -a 'systemctl status puma'
 testapp_IP = 84.201.159.207  testapp_port: 9292
 
 db_IP = 84.201.157.20
+
+
+#### задание * (dynamic inventory gcp)
+
+создан Compute Engine на Google Cloud (instance-app)
+
+в проекте создан модуль ansible-gc-dinamic-inventory: maven/java. в нем класс GCInventory. 
+
+
+как работает:
+
+требуется установка java, maven
+
+в директории ansible-gc-dinamic-inventory выполнить команду mvn clean package
+
+полученный jar файл скопирован в директорию ansible-gcp
+
+для запуска инвентаризации создан исполняемый файл import-inventory
+
+создан play-book google_git_play.yml, который устанавливает git на instance-app 
+
+запущен, проверено. что git установлен: git version:
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-09.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
