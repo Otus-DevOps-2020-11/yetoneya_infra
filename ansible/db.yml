@@ -7,7 +7,7 @@
   tasks:
     - name: Install mongo
       apt:
-        name: mongodb-org
+        pkg: mongodb-org
         state: present
         update_cache: yes
 

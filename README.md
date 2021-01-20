@@ -311,8 +311,8 @@ db_IP = 178.154.226.47
 
 установлен ansible, создан файл inventory, выполнены команды:
 
-ansible reddit -i ./inventory -m ping
-ansible db -i ./inventory -m ping
+    ansible reddit -i ./inventory -m ping
+    ansible db -i ./inventory -m ping
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework08-01.png)
 
@@ -396,24 +396,24 @@ ansible-playbook clone.yml получили changed=1
 
 созданы инстансы без провижинга, файлы конфигурации, выполнены команды
 
-ansible-playbook reddit_app.yml --check --limit db --tags db-tag
+    ansible-playbook reddit_app.yml --check --limit db --tags db-tag
 
-ansible-playbook reddit_app.yml --limit db --tags db-tag
+    ansible-playbook reddit_app.yml --limit db --tags db-tag
 
-ansible-playbook reddit_app.yml --check --limit app --tags app-tag
+    ansible-playbook reddit_app.yml --check --limit app --tags app-tag
 
-ansible-playbook reddit_app.yml  --limit app --tags app-tag
+    ansible-playbook reddit_app.yml  --limit app --tags app-tag
 
-ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+    ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
 
-ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+    ansible-playbook reddit_app.yml --limit app --tags deploy-tag
 
 
 затем проверки:
 
-ansible db -m command -a 'systemctl status mongod'
+    ansible db -m command -a 'systemctl status mongod'
 
-ansible app -m command -a 'systemctl status puma'
+    ansible app -m command -a 'systemctl status puma'
 
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-01.png)
@@ -445,11 +445,6 @@ ansible app -m command -a 'systemctl status puma'
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-08.png)
 
 
-testapp_IP = 84.201.159.207  testapp_port: 9292
-
-db_IP = 84.201.157.20
-
-
 #### задание * (dynamic inventory gcp)
 
 создан Compute Engine на Google Cloud (instance-app)
@@ -473,6 +468,60 @@ db_IP = 84.201.157.20
 
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework09-09.png)
+
+
+#### packer
+
+в директории ansible:
+
+создан playbook packer_app.yaml для установки Ruby and Bundler
+
+создан playbook packer_db.yaml для скачивания MongoDB
+
+
+в директории packer в в db.json и ap.json изменены provisioners:
+
+     "provisioners": [
+       {
+         "type": "ansible",
+         "playbook_file": "../ansible/packer_app.yml"
+       }
+     ]
+
+     "provisioners": [
+       {
+       "type": "ansible",
+       "playbook_file": "../ansible/packer_app.yml"
+       }
+     ]
+
+созданы новые образы базы данных и приложения
+
+в terraforme изменены id образов и созданы виртуалки на основе этих образов
+
+запущен ./import-inventory
+
+запущен playbook site.yml
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-10.png)
+
+проверена доступность сервиса:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-11.png)
+
+
+     testapp_IP = 178.154.253.43 testapp_port: 9292
+
+
+
+
+
+
+
+
+
+
+
 
 
 
