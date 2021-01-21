@@ -311,8 +311,8 @@ db_IP = 178.154.226.47
 
 установлен ansible, создан файл inventory, выполнены команды:
 
-ansible reddit -i ./inventory -m ping
-ansible db -i ./inventory -m ping
+    ansible reddit -i ./inventory -m ping
+    ansible db -i ./inventory -m ping
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework08-01.png)
 
@@ -345,7 +345,7 @@ ansible-playbook clone.yml получили changed=1
 
 #### плагин для создания динамического inventory.json
 
-в проекте создан модуль ansible-dinamic-inventory: maven/java. в нем класс Inventory. 
+в проекте создан модуль ansible-yc-dinamic-inventory: maven/java. в нем класс YCInventory. 
 
 как работает:
 
@@ -382,6 +382,163 @@ ansible-playbook clone.yml получили changed=1
 заменять названия в import-inventory, или сделать отдельные файлы для запуска
 
 (не универсально. подходит для определенной структуры)
+
+
+### homework 9
+
+
+#### один playbook - один сценарий
+
+
+добавлено отключение провижинга в terraform
+
+добавлен output для внутренних хостов
+
+созданы инстансы без провижинга, файлы конфигурации, выполнены команды
+
+    ansible-playbook reddit_app.yml --check --limit db --tags db-tag
+
+    ansible-playbook reddit_app.yml --limit db --tags db-tag
+
+    ansible-playbook reddit_app.yml --check --limit app --tags app-tag
+
+    ansible-playbook reddit_app.yml  --limit app --tags app-tag
+
+    ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+
+    ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+
+
+затем проверки:
+
+    ansible db -m command -a 'systemctl status mongod'
+
+    ansible app -m command -a 'systemctl status puma'
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-01.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-02.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-03.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-04.png)
+
+
+
+#### один playbook - много сценариев
+
+
+создан playbook reddit-app2.yml, сценарий разделен на части:
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-05.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-06.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-07.png)
+
+
+#### несколько playbooks, в каждом отдельный сценарий
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-08.png)
+
+
+#### задание * (dynamic inventory gcp)
+
+создан Compute Engine на Google Cloud (instance-app)
+
+в проекте создан модуль ansible-gc-dinamic-inventory: maven/java. в нем класс GCInventory. 
+
+
+как работает:
+
+требуется установка java, maven
+
+в директории ansible-gc-dinamic-inventory выполнить команду mvn clean package
+
+полученный jar файл скопирован в директорию ansible-gcp
+
+для запуска инвентаризации создан исполняемый файл import-inventory
+
+создан play-book google_git_play.yml, который устанавливает git на instance-app 
+
+запущен, проверено. что git установлен: git version:
+
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-09.png)
+
+
+#### packer
+
+в директории ansible:
+
+создан playbook packer_app.yaml для установки Ruby and Bundler
+
+создан playbook packer_db.yaml для скачивания MongoDB
+
+
+в директории packer в в db.json и ap.json изменены provisioners:
+
+     "provisioners": [
+       {
+         "type": "ansible",
+         "playbook_file": "../ansible/packer_app.yml"
+       }
+     ]
+
+     "provisioners": [
+       {
+       "type": "ansible",
+       "playbook_file": "../ansible/packer_app.yml"
+       }
+     ]
+
+созданы новые образы базы данных и приложения
+
+в terraforme изменены id образов и созданы виртуалки на основе этих образов
+
+запущен ./import-inventory
+
+запущен playbook site.yml
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-10.png)
+
+проверена доступность сервиса:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework09-11.png)
+
+
+     testapp_IP = 178.154.253.43 testapp_port: 9292
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,37 @@
+---
+- name: Configure app
+  hosts: app
+  become: true
+  vars:
+    db_host: 10.130.0.4
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: Clone repo
+      git:
+        repo: https://github.com/express42/reddit.git
+        dest: /home/ubuntu/reddit
+
+    - name: Add config for DB connection
+      template:
+        src: templates/db_config.j2
+        dest: /home/ubuntu/db_config
+        owner: ubuntu
+        group: ubuntu
+
+    - name: Add unit file for Puma
+      copy:
+        src:  files/puma.service
+        dest: /etc/systemd/system/puma.service
+      notify: reload puma
+
+    - name: enable puma
+      ansible.builtin.shell: systemctl enable puma
+
+  handlers:
+    - name: reload puma
+      ansible.builtin.shell: systemctl daemon-reload && systemctl restart puma

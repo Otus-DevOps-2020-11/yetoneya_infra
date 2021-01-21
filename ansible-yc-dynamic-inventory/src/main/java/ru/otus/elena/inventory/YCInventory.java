@@ -18,12 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class Inventory {
+public class YCInventory {
 
-    private static final String TOKEN = "YOUR_TOKEN";
-    private static final String FOLDER_ID = "YOUR_FOLDER_ID";
+    private static final String TOKEN = Secrets.TOKEN.getValue();
+    private static final String FOLDER_ID = Secrets.FOLDER_ID.getValue();
     private static final String PATH = "./";
-    private static final Logger logger = Logger.getLogger("Inventory");
+    private static final Logger logger = Logger.getLogger("YCInventory");
 
     public static void main(String... args) {
         if (args.length == 0) createInventoryFromYC();
@@ -66,9 +66,9 @@ public class Inventory {
         });
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(Paths.get(PATH, "inventory.json").toFile(), all);
-        } catch (IOException e) {
-            e.printStackTrace();
+            mapper.writeValue(Paths.get(PATH, "inventory-yc.json").toFile(), all);
+        } catch (IOException ex) {
+            logger.log(Level.SEVERE, ex.toString());
         }
     }
 

@@ -53,3 +53,9 @@ variable count_app {
   type = number
   default = 1
 }
+
+variable provisioners_enable {
+  description = "Use provisioners"
+  type = number
+  default = 1
+}
