@@ -17,6 +17,7 @@ resource "yandex_compute_instance" "app" {
   }
 
   network_interface {
+    security_group_ids = []
     subnet_id = var.subnet_id
     nat = true
 
@@ -62,13 +63,13 @@ resource "null_resource" "app" {
   }
 }
 
-/*resource "yandex_vpc_network" "lab-net" {
+resource "yandex_vpc_network" "lab-net" {
   name = "lab-network"
 }
 
-resource "yandex_vpc_security_group" "group1" {
-  name        = "My security group"
-  description = "description for my security group"
+resource "yandex_vpc_security_group" "group" {
+  name        = "security group"
+
   network_id  = "${yandex_vpc_network.lab-net.id}"
 
   labels = {
@@ -82,19 +83,14 @@ resource "yandex_vpc_security_group" "group1" {
     port           = 8080
   }
 
-  egress {
-    protocol       = "ANY"
-    description    = "rule2 description"
-    v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-    from_port      = 8090
-    to_port        = 8099
-  }
+}
+resource "yandex_vpc_network" "app-network" {
+  name = "app-network"
+}
 
-  egress {
-    protocol       = "UDP"
-    description    = "rule3 description"
-    v4_cidr_blocks = ["10.0.1.0/24"]
-    from_port      = 8090
-    to_port        = 8099
-  }
-}*/
+resource "yandex_vpc_subnet" "app-subnet" {
+  name           = "app-subnet"
+  zone           = "ru-central1-a"
+  network_id     = yandex_vpc_network.app-network.id
+  v4_cidr_blocks = ["192.168.10.0/24"]
+}
