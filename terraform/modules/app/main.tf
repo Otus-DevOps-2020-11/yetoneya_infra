@@ -1,4 +1,5 @@
 resource "yandex_compute_instance" "app" {
+  depends_on = [yandex_vpc_security_group.security_group]
   name = "reddit-app"
 
   labels = {
@@ -17,10 +18,10 @@ resource "yandex_compute_instance" "app" {
   }
 
   network_interface {
-    security_group_ids = []
     subnet_id = var.subnet_id
     nat = true
-
+    security_group_ids = [
+      yandex_vpc_security_group.security_group.id]
   }
 
   metadata = {
@@ -63,34 +64,22 @@ resource "null_resource" "app" {
   }
 }
 
-resource "yandex_vpc_network" "lab-net" {
-  name = "lab-network"
-}
+resource "yandex_vpc_security_group" "security_group" {
 
-resource "yandex_vpc_security_group" "group" {
-  name        = "security group"
-
-  network_id  = "${yandex_vpc_network.lab-net.id}"
+  name = "security group"
+  network_id = var.network_id
+  folder_id = var.folder_id
 
   labels = {
-    my-label = "my-label-value"
+    my-label = "security"
   }
 
   ingress {
-    protocol       = "TCP"
-    description    = "rule1 description"
-    v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-    port           = 8080
+    protocol = "TCP"
+    description = "description"
+
+    port = 80
   }
 
 }
-resource "yandex_vpc_network" "app-network" {
-  name = "app-network"
-}
 
-resource "yandex_vpc_subnet" "app-subnet" {
-  name           = "app-subnet"
-  zone           = "ru-central1-a"
-  network_id     = yandex_vpc_network.app-network.id
-  v4_cidr_blocks = ["192.168.10.0/24"]
-}
