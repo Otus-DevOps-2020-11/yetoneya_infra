@@ -1,1 +1,1 @@
-{"app":{"hosts":{"reddit-app-a":{"ansible_host":"178.154.252.172"}}},"db":{"hosts":{"reddit-db-a":{"ansible_host":"178.154.253.110"}}}}
+{"app":{"hosts":{"reddit-app":{"ansible_host":"178.154.254.171"}}},"db":{"hosts":{"reddit-db-a":{"ansible_host":"178.154.254.179"}}}}

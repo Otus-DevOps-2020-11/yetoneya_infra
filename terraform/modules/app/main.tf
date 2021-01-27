@@ -1,5 +1,4 @@
 resource "yandex_compute_instance" "app" {
-  depends_on = [yandex_vpc_security_group.security_group]
   name = "reddit-app"
 
   labels = {
@@ -20,8 +19,6 @@ resource "yandex_compute_instance" "app" {
   network_interface {
     subnet_id = var.subnet_id
     nat = true
-    security_group_ids = [
-      yandex_vpc_security_group.security_group.id]
   }
 
   metadata = {
@@ -62,24 +59,5 @@ resource "null_resource" "app" {
   provisioner "remote-exec" {
     script = "${path.module}/files/deploy.sh"
   }
-}
-
-resource "yandex_vpc_security_group" "security_group" {
-
-  name = "security group"
-  network_id = var.network_id
-  folder_id = var.folder_id
-
-  labels = {
-    my-label = "security"
-  }
-
-  ingress {
-    protocol = "TCP"
-    description = "description"
-
-    port = 80
-  }
 
 }
-

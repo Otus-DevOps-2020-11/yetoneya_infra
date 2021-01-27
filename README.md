@@ -513,6 +513,44 @@ ansible-playbook clone.yml получили changed=1
      testapp_IP = 178.154.253.43 testapp_port: 9292
 
 
+### homework 10
+
+
+созданы роли db и app, проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework10-01.png)
+
+
+созданы окружения stage и prod, проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework10-02.png)
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework10-03.png)
+
+
+
+добавлена community-роль jdauphant.nginx, добавлен вызов роли jdauphant.nginx в app.yml
+
+проверено. что приложение доступно на порту 80:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework10-04.png)
+
+
+создали пользователей, проверка:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework10-05.png)
+
+
+#### задания со *
+
+#### динамическое инвентори: 
+
+добавили файлы inventory-yc.jar и import-inventory(созданные на прошлом дз) в директории 
+
+ansible/environment/stage и ansible/environment/prog. inventory осуществляется командой 
+
+./import-inventory
+
 
 
 
