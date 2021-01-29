@@ -552,6 +552,12 @@ ansible/environment/stage и ansible/environment/prog. inventory осущест�
 ./import-inventory
 
 
+#### travis
+
+изменен файл .travis.yml
+
+
+
 
 
 

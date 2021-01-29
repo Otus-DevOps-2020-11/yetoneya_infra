@@ -1,9 +1,57 @@
 dist: trusty
 sudo: required
 language: bash
+
+env:
+  global:
+  - TERRAFORM_VERSION=0.14.4
+  - PACKER_VERSION=1.6.6
+
 before_install:
-- curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-11/run.sh | bash
+  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-11/run.sh | bash
+  - sudo apt-get update
+  - sudo apt install unzip
+  - wget -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+  - sudo unzip /tmp/terraform.zip -d /usr/local/bin/
+  - wget -O /tmp/packer.zip https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
+  - sudo unzip /tmp/packer.zip  -d /usr/local/bin/
+  - rm *.zip
+
+jobs:
+  include:
+    language: python
+    python: "2.7"
+    - if: branch = ansible-3 AND type=push
+      install:
+         - sudo apt install pip
+         - sudo pip install -r ansible/requirements.txt
+         - sudo pip install ansible-lint
+         - curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+      script:
+        - ansible --version
+        - terraform version
+        - packer version
+        - cp packer/variables.json.example packer/variables.json
+        - packer validate -var-file=packer/variables.json packer/app.json
+        - packer validate -var-file=packer/variables.json packer/db.json
+        - cp terraform/modules/app/variables.tf.example terraform/modules/app/variables.tf
+        - cp terraform/modules/db/variables.tf.example terraform/modules/db/variables.tf
+        - cp terraform/prod/terraform.tfvars.example terraform/prod/terraform.tfvars
+        - cp terraform/stage/terraform.tfvars.example terraform/stage/terraform.tfvars
+        - terraform init terraform/stage
+        - terraform get terraform/stage
+        - terraform validate terraform/stage
+        - terraform init terraform/prod
+        - terraform get terraform/prod
+        - terraform validate terraform/prod
+        - ansible-lint ansible/playbooks/app.yml
+        - ansible-lint ansible/playbooks/db.yml
+        - ansible-lint ansible/playbooks/deploy.yml
+        - ansible-lint ansible/playbooks/site.yml
+        - ansible-lint ansible/playbooks/users.yml
 
 notifications:
   slack:
     secure: CnfC/mjT4es1vCvMvho4BAuPzEEpeVLqOYqK5eycBoIgL0rO9BreKitgYwS2hVF1itOfSneVMRwsDVo8IL49xi2Px2itQ11tUAIUWn2DISihVHmH8oIpVGQSJOuklHDIYpMuvuiBx8V550lN9rZnY7GK0jHvIqrkgXCIycdLX1EUAbMJAuNOAZKZM7+SmrGodOJxQP9QGHg1v3gaNdtrWboukNV6xdEoYR40zlBI65AfI+0TFxqc8elUQJb8jgcwAyZqlMLSUu5RvF9VMXisXzwzh/eVCHwReS6s/GrajxjmLriqAuyJVx/zSpT3UOTKmPBKArdH01xlznecOo+cZsurkm0T27KOZaO+5Kk9nfvhi6p91jlu4rbXvdHuHXOpeu2+3830YMkq7/lFu+pH2+XRsah3seE9GYdaj72KGrd/OABGmc+6cjrW9EEloRP0jLpxOI2CcYzdk/lLMLa7FPzWvTLBoAW2K01hBZgrNK2OEMY+pXfnLkOaqKLn6Ad+vVKzp//6iWorbi/MbwMapo8Hpv9c9GmUFi4CU7wRow2rl2KoPSBbiV4hbkmy+lt1qF36L4jYJhWYZHNk/BihdeB7+Gh/SlJztrs9t9piHhyEO5Mm5X8ZwhFXMyhUKJ6lGkeq/4Od5ALOVjZ3aXlS5pD6eIACNC2IHLXC4n2IXf8=
+
+
