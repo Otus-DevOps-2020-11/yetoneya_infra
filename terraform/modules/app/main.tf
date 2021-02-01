@@ -1,8 +1,8 @@
 resource "yandex_compute_instance" "app" {
-  name = "reddit-app-a"
+  name = "reddit-app"
 
   labels = {
-    tags = "reddit-app-a"
+    tags = "reddit-app"
   }
 
   resources {
@@ -59,4 +59,5 @@ resource "null_resource" "app" {
   provisioner "remote-exec" {
     script = "${path.module}/files/deploy.sh"
   }
+
 }

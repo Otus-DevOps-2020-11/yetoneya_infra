@@ -28,8 +28,8 @@ public class GCInventory {
 
     public static void main(String args[]) throws IOException, GeneralSecurityException {
 
-        String project = "mythic-method-301917";
-        String zone = "europe-north1-a";
+        String project = "mythic-method";
+        String zone = "zone";
         Compute computeService = createComputeService();
         createJsonFile(getRunningInstances(computeService.instances().list(project, zone)));
     }
@@ -38,7 +38,7 @@ public class GCInventory {
         HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
 
-        GoogleCredential credential = GoogleCredential.fromStream(Files.newInputStream(Paths.get(PATH, "gkey.json")));
+        GoogleCredential credential = GoogleCredential.fromStream(Files.newInputStream(Paths.get("gkey.json")));
 
         if (credential.createScopedRequired()) {
             credential =

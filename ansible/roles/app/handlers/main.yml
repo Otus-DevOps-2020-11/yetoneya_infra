@@ -1,0 +1,3 @@
+---
+- name: reload puma
+  ansible.builtin.shell: systemctl daemon-reload && systemctl restart puma

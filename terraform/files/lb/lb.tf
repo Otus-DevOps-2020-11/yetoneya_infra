@@ -21,6 +21,11 @@ resource "yandex_lb_network_load_balancer" "lb" {
   }
 }
 
+variable "subnet_id" {
+  description = "Subnet"
+  default = "e9b0eh95ocin6vutga87"
+}
+
 resource "yandex_lb_target_group" "lb_group" {
   name = "group"
   depends_on = [yandex_compute_instance.app]
