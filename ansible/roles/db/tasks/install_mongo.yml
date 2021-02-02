@@ -1,0 +1,18 @@
+---
+- name: Add APT key
+  apt_key:
+    id: EA312927
+    keyserver: keyserver.ubuntu.com
+    state: present
+
+- name: Add APT repository
+  apt_repository:
+    repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+    state: present
+
+- name: Install mongo
+  apt:
+    allow_unauthenticated: yes
+    pkg: mongodb-org
+    state: present
+    update_cache: yes
