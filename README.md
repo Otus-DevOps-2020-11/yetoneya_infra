@@ -595,15 +595,21 @@ ansible/environment/stage и ansible/environment/prog. inventory осущест�
 
 #### задание со *
 
-внесны изменения в Vagrantfile lkz корректной работы проксирования
+внесeны изменения в Vagrantfile для корректной работы проксирования
 
 проверка работоспособности:
 
 [![](https://github.com/yetoneya/pictures/blob/main/homework11-04.png)
 
 
+#### molecule
+
+sudo pip3 install molecule-docker
+
+molecule init scenario -r db default
 
 
+  
 
 
 
