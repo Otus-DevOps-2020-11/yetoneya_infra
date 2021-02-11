@@ -628,6 +628,8 @@ Options:
     molecule converge
     molecule verify
 
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-05.png)
+
     molecule destroy -s <scenario_name>
     deactivate
 
