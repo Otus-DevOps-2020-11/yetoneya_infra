@@ -604,12 +604,33 @@ ansible/environment/stage и ansible/environment/prog. inventory осущест�
 
 #### molecule
 
-sudo pip3 install molecule-docker
+    pip install virtualenv
 
-molecule init scenario -r db default
+    cd ansible
+
+    virtualenv venv
+
+    source venv/bin/activate
+
+    pip install -r requirements.txt
+    pip install molecule-vagrant 
+
+    cd ./roles/db
+
+    molecule init scenario -r db -d vagrant
+    molecule create
+
+Options:
+-s, --scenario-name TEXT        Name of the scenario to target. (default)
+-d, --driver-name [delegated|docker|podman|vagrant]
+
+    molecule list
+    molecule converge
+    molecule verify
+    molecule destroy -s <scenario_name>
+    deactivate
 
 
-  
 
 
 

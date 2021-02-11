@@ -1,4 +1,11 @@
 ---
+- name: Install ssl
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+    state: present
+
 - name: Add APT key
   apt_key:
     id: EA312927

@@ -2,16 +2,19 @@
 dependency:
   name: galaxy
 driver:
-  name: delegated
+  name: vagrant
+privider:
+  name: virtualbox
 platforms:
- - name: instance
-   box: ubuntu/xenial64
+  - name: instance
+    box: ubuntu/xenial64
+provisioner:
+  name: ansible
+verifier:
+  name: testinfra
+  directory: ./tests
 lint: |
   set -e
   yamllint .
   ansible-lint
   flake8
-provisioner:
-  name: ansible
-verifier:
-  name: testinfra
