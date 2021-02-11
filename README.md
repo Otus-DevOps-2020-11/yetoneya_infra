@@ -633,7 +633,7 @@ Options:
 
 #### packer
 
-в файлах packer_app.yml и packer_db.yml использовны роли
+в файлах packer_app.yml и packer_db.yml tasks -> roles
 
 
 
