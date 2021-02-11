@@ -633,6 +633,10 @@ Options:
     molecule destroy -s <scenario_name>
     deactivate
 
+#### test
+
+добавлен тест в tests/test_default.py
+
 #### packer
 
 в файлах packer_app.yml и packer_db.yml tasks -> roles
