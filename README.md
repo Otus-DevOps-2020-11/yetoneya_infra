@@ -630,7 +630,8 @@ Options:
     molecule destroy -s <scenario_name>
     deactivate
 
-
+"extra_arguments": ["--tags","ruby"],
+"ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
 
 
 
