@@ -1,11 +1,7 @@
 ---
-- name: Install Ruby && Bundler
-  hosts: app
-  become: true
-  tasks:
-  - name: Install ruby and rubygems and required packages
-    apt: "name={{ item }} state=present"
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
+- name: Configure app
+  hosts: all
+  become : true
+  roles:
+    - app
+    - jdauphant.nginx

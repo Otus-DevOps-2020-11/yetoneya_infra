@@ -611,7 +611,7 @@ ansible/environment/stage и ansible/environment/prog. inventory осущест�
     virtualenv venv
 
     source venv/bin/activate
-
+    sudo apt-get install -y python3-pip libssl-dev
     pip install -r requirements.txt
     pip install molecule-vagrant 
 
@@ -627,12 +627,13 @@ Options:
     molecule list
     molecule converge
     molecule verify
+
     molecule destroy -s <scenario_name>
     deactivate
 
-"extra_arguments": ["--tags","ruby"],
-"ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
+#### packer
 
+в файлах packer_app.yml и packer_db.yml использовны роли
 
 
 
