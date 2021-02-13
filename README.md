@@ -557,6 +557,101 @@ ansible/environment/stage и ansible/environment/prog. inventory осущест�
 изменен файл .travis.yml
 
 
+### homework 11
+
+
+установлен VirtualBox и Vagrant
+
+создан Vagrantfile
+
+проверили работоспособность:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-01.png)
+
+
+добавлен провижининг роли db в Vagrantfile
+
+добавлена установка Python в playbooks
+
+выполнен провижининг
+
+доработана роль db
+
+проверили работоспособность:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-02.png)
+
+добавлен провижининг роли app в Vagrantfile
+
+выполнен провижининг
+
+доработана роль app
+
+выполнена параметризация ролей и deploy.yml
+
+проверка работоспособности:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-03.png)
+
+#### задание со *
+
+внесeны изменения в Vagrantfile для корректной работы проксирования
+
+проверка работоспособности:
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-04.png)
+
+
+#### molecule
+
+    pip install virtualenv
+
+    cd ansible
+
+    virtualenv venv
+
+    source venv/bin/activate
+    sudo apt-get install -y python3-pip libssl-dev
+    pip install -r requirements.txt
+    pip install molecule-vagrant 
+
+    cd ./roles/db
+
+    molecule init scenario -r db -d vagrant
+    molecule create
+
+Options:
+-s, --scenario-name TEXT        Name of the scenario to target. (default)
+-d, --driver-name [delegated|docker|podman|vagrant]
+
+    molecule list
+    molecule converge
+    molecule verify
+
+[![](https://github.com/yetoneya/pictures/blob/main/homework11-05.png)
+
+    molecule destroy -s <scenario_name>
+    deactivate
+
+#### test
+
+добавлен тест в tests/test_default.py
+
+#### packer
+
+в файлах packer_app.yml и packer_db.yml tasks -> roles
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
